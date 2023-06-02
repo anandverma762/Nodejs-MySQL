@@ -1,32 +1,27 @@
-const Seq = require('sequelize');
+const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database')
+const sequelize = require('../util/database');
 
-const Product = sequelize.define('product',{
+const Product = sequelize.define('product', {
   id: {
-    type: Seq.INTEGER,
-    allowNull: false,
-    primaryKey: true,
+    type: Sequelize.INTEGER,
     autoIncrement: true,
-    unique: true
+    allowNull: false,
+    primaryKey: true
   },
-  title: {
-    type: Seq.CHAR,
+  title: Sequelize.STRING,
+  price: {
+    type: Sequelize.DOUBLE,
     allowNull: false
   },
-  price: {
-    type: Seq.DOUBLE,
-    allowNull:false
-  },
   imageUrl: {
-    type: Seq.TEXT,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   description: {
-    type: Seq.TEXT,
+    type: Sequelize.STRING,
     allowNull: false
   }
-})
+});
 
 module.exports = Product;
-
